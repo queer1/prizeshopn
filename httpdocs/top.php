@@ -135,7 +135,7 @@
 		        			
 		        			
 		        			<li>
-		        				<a href="contact.html" class="nav-with-ul">Live Deals</a>
+		        				<a href="liveDeals.php" class="nav-with-ul">Live Deals</a>
 		        				<span class="nav-child-container"><span class="nav-child-trigger">+</span></span>
 		        				<ul style="height: 0;">
 				        			<li><a href="contact-iframe.html">Using an Iframe</a></li>

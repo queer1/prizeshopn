@@ -66,9 +66,9 @@ if($(photoswipeContainer).length > 0){
 				/* Customizing toolbar */
 
 				getToolbar: function(){
-					return '<div class="ps-toolbar-previous icon-left-open"></div>'
-					+ '<div class="ps-toolbar-play icon-play"></div>'
-					+ '<div class="ps-toolbar-next icon-right-open"></div>';
+					return '<div class="ps-toolbar-previous icon-left-open">Buy</div>'
+					+ '<div class="ps-toolbar-play icon-play">Grabbit</div>'
+					+ '<div class="ps-toolbar-next icon-right-open">Win discounts</div>';
 				},
 						
 				getImageCaption: function(el){
