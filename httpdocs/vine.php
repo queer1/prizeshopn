@@ -1,26 +1,45 @@
 <? include_once("top.php"); ?>
 
-		        <div id="content">
-		        	<div id="gallery" class="gallery-container three-column photoswipe">
-		        		<a href="assets/gallery/gallery01.jpg"><img src="assets/gallery/gallery01.jpg" alt="Budha"></a>
-		        		<a href="assets/gallery/gallery02.jpg"><img src="assets/gallery/gallery02.jpg" alt="Angry Alien"></a>
-		        		<a href="assets/gallery/gallery03.jpg"><img src="assets/gallery/gallery03.jpg" alt="The Eye"></a>
-		        		<a href="assets/gallery/gallery04.jpg"><img src="assets/gallery/gallery04.jpg" alt="Zombie"></a>
-		        		<a href="assets/gallery/gallery05.jpg"><img src="assets/gallery/gallery05.jpg" alt="Lines"></a>
-		        		<a href="assets/gallery/gallery06.jpg"><img src="assets/gallery/gallery06.jpg" alt="The Second Eye"></a>
-		        		<a href="assets/gallery/gallery07.jpg"><img src="assets/gallery/gallery07.jpg" alt="Third Eye"></a>
-		        		<a href="assets/gallery/gallery08.jpg"><img src="assets/gallery/gallery08.jpg" alt="Hawk"></a>
-		        		<a href="assets/gallery/gallery09.jpg"><img src="assets/gallery/gallery09.jpg" alt="Three Fellows"></a>
-		        		<a href="assets/gallery/gallery10.jpg"><img src="assets/gallery/gallery10.jpg" alt="Circle"></a>
-		        		<a href="assets/gallery/gallery11.jpg"><img src="assets/gallery/gallery11.jpg" alt="Lincoln"></a>
-		        		<a href="assets/gallery/gallery12.jpg"><img src="assets/gallery/gallery12.jpg" alt="Octopus"></a>
-		        		<a href="assets/gallery/gallery13.jpg"><img src="assets/gallery/gallery13.jpg" alt="Pattern"></a>
-		        		<a href="assets/gallery/gallery14.jpg"><img src="assets/gallery/gallery14.jpg" alt="Another Zombie"></a>
-		        		<a href="assets/gallery/gallery15.jpg"><img src="assets/gallery/gallery15.jpg" alt="Viking"></a>
-		        		<a href="assets/gallery/gallery16.jpg"><img src="assets/gallery/gallery16.jpg" alt="Chilly Hawk"></a>
-		        		<a href="assets/gallery/gallery17.jpg"><img src="assets/gallery/gallery17.jpg" alt="Black Eye"></a>
-		        		<a href="assets/gallery/gallery18.jpg"><img src="assets/gallery/gallery18.jpg" alt="Last Zombie"></a>
-		        	</div>
+
+		        <div id="content" class="blog">
+
+		        	
+
+				    <article id="format-quote" class="format-quote">
+			            <p class="icon-bg icon-quote"></p>
+				        <div class="wrapped-content">
+				            <blockquote>
+				                &ldquo;Vine videos from Kohls fashionista's.&ldquo;
+				            </blockquote>
+				        </div>
+				    </article>
+
+		        	
+		        	<article class="format-video" style="margin-top:-23px">
+		        		<div style="text-align:center;">
+<iframe class="vine-embed" src="https://vine.co/v/b39intXxu6e/embed/postcard" width="320" height="320" frameborder="0"></iframe><script async src="//platform.vine.co/static/scripts/embed.js" charset="utf-8"></script>
+		        		</div>
+		        		<div class="wrapped-content" style="margin-top:-13px">
+		        			<p>
+		        				<a href="#" class="button round full-width"><i class="icon-facebook" style="color: #FFF;"></i> <i class="icon-twitter" style="color: #FFF;"></i>&nbsp; Share & get 10 points</a>
+		        			</p>
+		        		</div>
+		        	</article>
+
+		        	<article class="format-video" style="margin-top:-53px">
+		        		<div style="text-align:center;">
+<iframe class="vine-embed" src="https://vine.co/v/bYHEDt75JgU/embed/postcard" width="320" height="320" frameborder="0"></iframe><script async src="//platform.vine.co/static/scripts/embed.js" charset="utf-8"></script>
+		        		</div>
+		        		<div class="wrapped-content" style="margin-top:-19px">
+		        			<p>
+		        				<a href="#" class="button round full-width"><i class="icon-facebook" style="color: #FFF;"></i> <i class="icon-twitter" style="color: #FFF;"></i>&nbsp; Share & get 10 points</a>
+		        			</p>
+		        		</div>
+		        	</article>
+
+
+
+
 		        </div>
 
 	        </section>
