@@ -1,29 +1,28 @@
-<? include_once("top.php"); ?>
+<? include_once("top.php"); 
+
+?>
 
 		        <div id="content">
+                <div style="text-align:center">
+<?
+if($userID==""){?>                
+                 <a  href="javascript:auth.login('facebook', {
+  rememberMe: true,
+  scope: 'email,user_birthday,publish_stream,user_location,user_games_activity,friends_games_activity'
+});" class="button round success tiny"><i class="icon-facebook" style="color: #fff;"></i>Start +10 points</a>&nbsp;&nbsp;
+                 <a  href="javascript:auth.login('twitter', {
+  rememberMe: true
+});" class="button round lightblue tiny"><i class="icon-twitter" style="color: #fff;"></i> Start +10 points</a>
+<? }?>               
+<? if($userID!=""){?>
+<p style="text-align:center"><h3>Points: 100</h3> </p>
+<? }?>
+ </div>
 		        	<div id="gallery" class="gallery-container three-column photoswipe">
 						<!-- Sweaters -->
 						<?php
-							$httpGetCallUrl = "http://qe11-openapi.kohlsecommerce.com/v1/catalog/4294719371?sortID=2&limit=6";
-							$ch = curl_init();
-							curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-							curl_setopt($ch, CURLOPT_URL, $httpGetCallUrl);
-							curl_setopt($ch,CURLOPT_HTTPHEADER,array('Accept: application/json','X-APP-API_KEY: 4iY860UaqswaZAjH3rVTCAGb15kDITNV'));
-							$result = curl_exec($ch);
-							$json = json_decode($result, true);
-							$numberOfITems = $json['limit'];
-							for($i=0; $i<$numberOfITems; $i++) {
-								?>
-								<a href= "<?php echo($json['payload']['products'][$i]['image']['url']); ?> ">
-							    	<img src="<?php echo($json['payload']['products'][$i]['image']['url']); ?> ">
-								</a>
-								<?php
-								}
-							curl_close($ch);
-						?>
-						<!-- Jewelry -->
-						<?php
-							$httpGetCallUrl = "http://qe11-openapi.kohlsecommerce.com/v1/catalog/4294737173?sortID=2&limit=6";
+						    $sort= rand(1, 6);
+							$httpGetCallUrl = "http://qe11-openapi.kohlsecommerce.com/v1/catalog/4294719371?sortID=$sort&limit=6";
 							$ch = curl_init();
 							curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 							curl_setopt($ch, CURLOPT_URL, $httpGetCallUrl);
@@ -42,7 +41,27 @@
 						?>
 						<!-- Shoes -->
 						<?php
-							$httpGetCallUrl = "http://qe11-openapi.kohlsecommerce.com/v1/catalog/4294718926+4294719776?sortID=2&limit=6";
+						    $sort= rand(1, 6);
+							$httpGetCallUrl = "http://qe11-openapi.kohlsecommerce.com/v1/catalog/4294718926+4294719776?sortID=$sort&limit=6";
+							$ch = curl_init();
+							curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+							curl_setopt($ch, CURLOPT_URL, $httpGetCallUrl);
+							curl_setopt($ch,CURLOPT_HTTPHEADER,array('Accept: application/json','X-APP-API_KEY: 4iY860UaqswaZAjH3rVTCAGb15kDITNV'));
+							$result = curl_exec($ch);
+							$json = json_decode($result, true);
+							$numberOfITems = $json['limit'];
+							for($i=0; $i<$numberOfITems; $i++) {
+								?>
+								<a href= "<?php echo($json['payload']['products'][$i]['image']['url']); ?> ">
+							    	<img src="<?php echo($json['payload']['products'][$i]['image']['url']); ?> ">
+								</a>
+								<?php
+								}
+							curl_close($ch);
+						?><!-- Jewelry -->
+						<?php
+						    $sort= rand(1, 6);
+							$httpGetCallUrl = "http://qe11-openapi.kohlsecommerce.com/v1/catalog/4294737173?sortID=$sort&limit=6";
 							$ch = curl_init();
 							curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 							curl_setopt($ch, CURLOPT_URL, $httpGetCallUrl);
@@ -59,25 +78,9 @@
 								}
 							curl_close($ch);
 						?>
+						
 
-		        		<!--a href="assets/gallery/gallery01.jpg"><img src="assets/gallery/gallery01.jpg" alt="Budha"></a>
-		        		<a href="assets/gallery/gallery02.jpg"><img src="assets/gallery/gallery02.jpg" alt="Angry Alien"></a>
-		        		<a href="assets/gallery/gallery03.jpg"><img src="assets/gallery/gallery03.jpg" alt="The Eye"></a>
-		        		<a href="assets/gallery/gallery04.jpg"><img src="assets/gallery/gallery04.jpg" alt="Zombie"></a>
-		        		<a href="assets/gallery/gallery05.jpg"><img src="assets/gallery/gallery05.jpg" alt="Lines"></a>
-		        		<a href="assets/gallery/gallery06.jpg"><img src="assets/gallery/gallery06.jpg" alt="The Second Eye"></a>
-		        		<a href="assets/gallery/gallery07.jpg"><img src="assets/gallery/gallery07.jpg" alt="Third Eye"></a>
-		        		<a href="assets/gallery/gallery08.jpg"><img src="assets/gallery/gallery08.jpg" alt="Hawk"></a>
-		        		<a href="assets/gallery/gallery09.jpg"><img src="assets/gallery/gallery09.jpg" alt="Three Fellows"></a>
-		        		<a href="assets/gallery/gallery10.jpg"><img src="assets/gallery/gallery10.jpg" alt="Circle"></a>
-		        		<a href="assets/gallery/gallery11.jpg"><img src="assets/gallery/gallery11.jpg" alt="Lincoln"></a>
-		        		<a href="assets/gallery/gallery12.jpg"><img src="assets/gallery/gallery12.jpg" alt="Octopus"></a>
-		        		<a href="assets/gallery/gallery13.jpg"><img src="assets/gallery/gallery13.jpg" alt="Pattern"></a>
-		        		<a href="assets/gallery/gallery14.jpg"><img src="assets/gallery/gallery14.jpg" alt="Another Zombie"></a>
-		        		<a href="assets/gallery/gallery15.jpg"><img src="assets/gallery/gallery15.jpg" alt="Viking"></a>
-		        		<a href="assets/gallery/gallery16.jpg"><img src="assets/gallery/gallery16.jpg" alt="Chilly Hawk"></a>
-		        		<a href="assets/gallery/gallery17.jpg"><img src="assets/gallery/gallery17.jpg" alt="Black Eye"></a>
-		        		<a href="assets/gallery/gallery18.jpg"><img src="assets/gallery/gallery18.jpg" alt="Last Zombie"></a-->
+		        		
 		        	</div>
 		        </div>
 
@@ -131,6 +134,52 @@
 
 	
 	<!-- Custom Scripts -->
+<script type="text/javascript" src="https://cdn.firebase.com/v0/firebase.js"></script>
+<script type="text/javascript" src="https://cdn.firebase.com/v0/firebase-simple-login.js"></script>
+<script type="text/javascript">
+  
+// FirebaseSimpleLogin demo instantiation
+var firebaseRef = new Firebase('https://prizeshopn.firebaseio.com');
+var auth = new FirebaseSimpleLogin(firebaseRef, function(error, user) {
+if (error) {
+        // an error occurred while attempting login
+alert(error);
+} 
+else if 
+(user) {
+var loginRef = new Firebase('https://prizeshopn.firebaseIO.com/users/active/'+user.id+'/');
+loginRef.on('value', function(snapshot) {
+if(snapshot.val() === null) {
+
+$.post('login.php',{name:user.name,fname:user.first_name,lname:user.last_name,email:user.email,userName:user.username,gender:user.gender,age:user.age_range,birthday:user.birthday,location:user.location,games:user.user_games,friendsGames:user.friends_games_activity,timezone:user.timezone,verified:user.verified,devices:user.devices,socialId:user.id, provider:user.provider},function(data){
+$('#loginBox').animate({'top':'-400px'},500);
+parent.location.reload();
+});
+
+} 
+else {
+var two=2;
+var id=snapshot.val().id;
+$.post('login.php',{socialId:user.id,type:two,id:id,userName:user.name},function(data){$('#loginBox').animate({'top':'-400px'},500);location.reload();
+
+});
+
+};
+});
+
+  
+        
+        // Log out so we can log in again with a different provider.
+        auth.logout();
+      } else {
+        // user is logged out
+      }
+    });
+    function login(provider) {
+      auth.login(provider);
+    }
+	
+</script>
 
 	    <script src='js/plugins/klass.js'></script>
 <script src='js/plugins/photoswipe.js'></script>
@@ -140,19 +189,13 @@
 <script src='js/plugins/responsivetables.js'></script>
 <script src='js/plugins/prism.js'></script>
 	    <script src='js/script.js'></script>
-
-	<!-- =Custom Scripts -->
+<script>
+<!-- =Custom Scripts -->
 
 
 	    
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 
-	    <script>
-	        var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-	        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-	        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-	        s.parentNode.insertBefore(g,s)}(document,'script'));
-	    </script>
 
     <!-- =Google Analytics -->
 	    

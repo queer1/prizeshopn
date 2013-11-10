@@ -1,3 +1,6 @@
+<?
+include_once("sessionhandle.php"); 
+?>
 <!DOCTYPE html>
 <!--[if IE 8 ]>    <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 9 ]>    <html lang="en" class="no-js lt-ie9> <![endif]-->
@@ -134,14 +137,11 @@
 		        			</li>
 		        			
 		        			
-		        			<li>
-		        				<a href="liveDeals.php" class="nav-with-ul">Live Deals</a>
-		        				<span class="nav-child-container"><span class="nav-child-trigger">+</span></span>
-		        				<ul style="height: 0;">
-				        			<li><a href="contact-iframe.html">Using an Iframe</a></li>
-				        			<li><a href="contact.html">Using Google Api V3</a></li>
-		        				</ul>
-		        			</li>
+		        			<li><a href="liveDeals.php">Live Deals</a></li>
+                            <? if($userID!=""){?>
+		        			<li><a href="logout.php">Log out</a></li>
+                            
+                            <? }?>
 		        		</ul>
 		        	</nav>
 	        	</div>

@@ -112,10 +112,12 @@ if($(photoswipeContainer).length > 0){
 				/* Customizing toolbar */
 
 				getToolbar: function(){
-					return '<div class="ps-toolbar-previous icon-left-open">Buy $29.99 Only</div>'
-					+ '<div class="ps-toolbar-play icon-play">Grabbit</div>'
-					+ '<div class="ps-toolbar-next icon-right-open">Win discounts</div>';
+					return '<div class="ps-toolbar-previous"><a href="#" class="button round">$49.99 Buy</a></div>'
+					+ '<div class="ps-toolbar-play"><a href="#" class="button round lightblue">Win Discounts</a></div>'
+					+ '<div class="ps-toolbar-next"><a href="#" onclick="myFunction()" class="button round bluegreen">Grabbit Now</a></div>';
+				
 				},
+               
 
 				getImageCaption: function(el){
 					var captionText, captionEl, captionBack;
@@ -138,13 +140,12 @@ if($(photoswipeContainer).length > 0){
 
 					captionBack = document.createElement('a');
 					captionBack.setAttribute('id', 'ps-custom-back');
-					captionBack.setAttribute('class', 'icon-cancel-1');
 
 					captionEl = document.createElement('div');
 					captionEl.appendChild(captionBack);
 
 					captionBack = document.createElement('span');
-					captionBack.innerHTML=captionText;
+					captionBack.innerHTML="Prize Shopn";
 					captionEl.appendChild(captionBack);
 					return captionEl;
 				},

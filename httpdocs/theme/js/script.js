@@ -98,7 +98,9 @@ if($(photoswipeContainer).length > 0){
 					captionEl.appendChild(captionBack);
 					
 					captionBack = document.createElement('span');
-					captionBack.innerHTML=captionText;
+					captionBack.innerHTML='<div class="ps-toolbar-previous"><a href="#" class="button round">$49.99 Buy</a></div>'
+					+ '<div class="ps-toolbar-play"><a href="#" class="button round lightblue">Win Discounts</a></div>'
+					+ '<div class="ps-toolbar-next"><a href="grabbit.php" class="button round bluegreen" style="z-index:"1000">Grabbit Now</a></div>';
 					captionEl.appendChild(captionBack);
 					return captionEl;
 				},
