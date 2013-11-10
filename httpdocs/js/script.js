@@ -112,7 +112,7 @@ if($(photoswipeContainer).length > 0){
 				/* Customizing toolbar */
 
 				getToolbar: function(){
-					return '<div class="ps-toolbar-previous icon-left-open">Buy</div>'
+					return '<div class="ps-toolbar-previous icon-left-open">Buy $29.99 Only</div>'
 					+ '<div class="ps-toolbar-play icon-play">Grabbit</div>'
 					+ '<div class="ps-toolbar-next icon-right-open">Win discounts</div>';
 				},
