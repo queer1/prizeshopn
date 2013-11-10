@@ -2,7 +2,6 @@
 
 		        <div id="content">
 		        	<div id="gallery" class="gallery-container three-column photoswipe">
-<<<<<<< HEAD
 						<!-- Sweaters -->
 						<?php
 							$httpGetCallUrl = "http://qe11-openapi.kohlsecommerce.com/v1/catalog/4294719371?sortID=2&limit=6";
@@ -60,9 +59,9 @@
 								}
 							curl_close($ch);
 						?>
-=======
-		        		<a href="http://cdn-s3-0.wanelo.com/product/image/5079204/original.jpg"><img src="http://cdn-s3-0.wanelo.com/product/image/5079204/original.jpg" alt="Chaps Colorblock Sheath Dress"></a>
-		        		<a href="img/kohls/niceDress.jpg"><img src="img/kohls/niceDress.jpg" alt="A1 by 8 Lace Faux-Wrap Dress"></a>
+
+		        		<!--a href="assets/gallery/gallery01.jpg"><img src="assets/gallery/gallery01.jpg" alt="Budha"></a>
+		        		<a href="assets/gallery/gallery02.jpg"><img src="assets/gallery/gallery02.jpg" alt="Angry Alien"></a>
 		        		<a href="assets/gallery/gallery03.jpg"><img src="assets/gallery/gallery03.jpg" alt="The Eye"></a>
 		        		<a href="assets/gallery/gallery04.jpg"><img src="assets/gallery/gallery04.jpg" alt="Zombie"></a>
 		        		<a href="assets/gallery/gallery05.jpg"><img src="assets/gallery/gallery05.jpg" alt="Lines"></a>
@@ -78,17 +77,16 @@
 		        		<a href="assets/gallery/gallery15.jpg"><img src="assets/gallery/gallery15.jpg" alt="Viking"></a>
 		        		<a href="assets/gallery/gallery16.jpg"><img src="assets/gallery/gallery16.jpg" alt="Chilly Hawk"></a>
 		        		<a href="assets/gallery/gallery17.jpg"><img src="assets/gallery/gallery17.jpg" alt="Black Eye"></a>
-		        		<a href="assets/gallery/gallery18.jpg"><img src="assets/gallery/gallery18.jpg" alt="Last Zombie"></a>
->>>>>>> eb2136401b328cd37975f01204a86149f00e4534
+		        		<a href="assets/gallery/gallery18.jpg"><img src="assets/gallery/gallery18.jpg" alt="Last Zombie"></a-->
 		        	</div>
 		        </div>
 
 	        </section>
 
         <!-- =Main Content -->
+	    
 
-
-
+	    
 
 	    </div>
     <!-- =Container -->
@@ -146,7 +144,7 @@
 	<!-- =Custom Scripts -->
 
 
-
+	    
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 
 	    <script>
@@ -157,8 +155,8 @@
 	    </script>
 
     <!-- =Google Analytics -->
+	    
 
-
-
+	    
 	</body>
 </html>
