@@ -3,8 +3,8 @@
 
 		        <div id="content">
 		        	<div id="gallery" class="gallery-container three-column photoswipe">
-		        		<a href="assets/gallery/gallery01.jpg"><img src="assets/gallery/gallery01.jpg" alt="Budha"></a>
-		        		<a href="assets/gallery/gallery02.jpg"><img src="assets/gallery/gallery02.jpg" alt="Angry Alien"></a>
+		        		<a href="http://cdn-s3-0.wanelo.com/product/image/5079204/original.jpg"><img src="http://cdn-s3-0.wanelo.com/product/image/5079204/original.jpg" alt="Chaps Colorblock Sheath Dress"></a>
+		        		<a href="img/kohls/niceDress.jpg"><img src="img/kohls/niceDress.jpg" alt="A1 by 8 Lace Faux-Wrap Dress"></a>
 		        		<a href="assets/gallery/gallery03.jpg"><img src="assets/gallery/gallery03.jpg" alt="The Eye"></a>
 		        		<a href="assets/gallery/gallery04.jpg"><img src="assets/gallery/gallery04.jpg" alt="Zombie"></a>
 		        		<a href="assets/gallery/gallery05.jpg"><img src="assets/gallery/gallery05.jpg" alt="Lines"></a>
