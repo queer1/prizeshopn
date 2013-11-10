@@ -5,9 +5,9 @@
 **/
 
 
-    /***
-    Countdown modules
-     */
+/***
+Countdown modules
+ */
 
 var infoWindowDisplayStr;
 function calcage(secs, num1, num2) {
@@ -240,13 +240,8 @@ if( document.getElementById('map-container-api') != null){
     gsecs = Math.floor(ddiff.valueOf()/1000);
     var countDownStr = CountBack(gsecs);
 
-    var contentString1 = "<img src='http://windowsvj.com/httpdocs/assets/kohl.png'><br/>" +
-        " Sale Ends in " +
-        countDownStr;
-
-    var contentString2 = "<img src='http://windowsvj.com/httpdocs/assets/kohl.png'><br/>" +
-        " Sale Ends in " +
-        countDownStr;
+    var contentString1 = "<img src='http://windowsvj.com/httpdocs/assets/kohl.png'><br/> Sale Ends in " + countDownStr;
+    var contentString2 = "<img src='http://windowsvj.com/httpdocs/assets/kohl.png'><br/> Sale Ends in " + countDownStr;
 
     function initialize() {
         var myLatlng = new google.maps.LatLng(37.715352, -122.358583);
@@ -263,46 +258,26 @@ if( document.getElementById('map-container-api') != null){
 
 		map = new google.maps.Map(mapContainer, mapOptions);
 
-//		var marker = new google.maps.Marker({
-//			position: myLatlng,
-//		    animation: google.maps.Animation.DROP,
-//			map: map,
-//			flat: true,
-//			title: 'Restart Inc.'
-//		});
-//        var infoWin = new google.maps.InfoWindow({
-//            content: contentString
-//        });
-//
-//        google.maps.event.addListener(marker, 'click', function() {
-//            infoWin.open(map,marker);
-//        });
-
-
-
+        //Map Marker 1
         var marker1 = new google.maps.Marker({
             position: myLatlng1,
-            map: map,
-            title: 'Kohls SF'
+            map: map
         });
-
-        var marker2 = new google.maps.Marker({
-            position: myLatlng2,
-            map: map,
-            title: 'Kohls OK'
-        });
-
         var infowindow1 = new google.maps.InfoWindow({
             content:  contentString1
-        });
-
-        var infowindow2 = new google.maps.InfoWindow({
-            content:  contentString2
         });
         google.maps.event.addListener(marker1, 'click', function() {
             infowindow1.open(map,marker1);
         });
 
+        //Map Marker 2
+        var marker2 = new google.maps.Marker({
+            position: myLatlng2,
+            map: map
+        });
+        var infowindow2 = new google.maps.InfoWindow({
+            content:  contentString2
+        });
         google.maps.event.addListener(marker2, 'click', function() {
             infowindow2.open(map,marker2);
         });
