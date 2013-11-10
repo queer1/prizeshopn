@@ -38,11 +38,26 @@ var refreshId = setInterval(function()
 <a href="#" class="button round red tiny">Slap Grabber</a>
 </div>
 		        	<div id="gallery" class="gallery-container two-column photoswipe">
-		        		<a href="assets/gallery/gallery01.jpg"><img src="assets/gallery/gallery01.jpg" alt="Budha"></a>
-		        		<a href="assets/gallery/gallery02.jpg"><img src="assets/gallery/gallery02.jpg" alt="Angry Alien"></a>
-		        		<a href="assets/gallery/gallery03.jpg"><img src="assets/gallery/gallery03.jpg" alt="The Eye"></a>
-		        		<a href="assets/gallery/gallery04.jpg"><img src="assets/gallery/gallery04.jpg" alt="Zombie"></a>
-		        		<a href="assets/gallery/gallery05.jpg"><img src="assets/gallery/gallery05.jpg" alt="Lines"></a>
+		        		<!-- Shoes -->
+						<?php
+						    $sort= rand(1, 6);
+							$httpGetCallUrl = "http://qe11-openapi.kohlsecommerce.com/v1/catalog/4294718926+4294719776?sortID=$sort&limit=1";
+							$ch = curl_init();
+							curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+							curl_setopt($ch, CURLOPT_URL, $httpGetCallUrl);
+							curl_setopt($ch,CURLOPT_HTTPHEADER,array('Accept: application/json','X-APP-API_KEY: 4iY860UaqswaZAjH3rVTCAGb15kDITNV'));
+							$result = curl_exec($ch);
+							$json = json_decode($result, true);
+							$numberOfITems = $json['limit'];
+							for($i=0; $i<$numberOfITems; $i++) {
+								?>
+								<a href= "<?php echo($json['payload']['products'][$i]['image']['url']); ?> ">
+							    	<img src="<?php echo($json['payload']['products'][$i]['image']['url']); ?> ">
+								</a>
+								<?php
+								}
+							curl_close($ch);
+						?>
 		        		
 		        	</div>
 		        </div>

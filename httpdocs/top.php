@@ -123,7 +123,9 @@ include_once("sessionhandle.php");
 		        		<ul class="nav">
 		        			<li><a href="index.php">Home</a></li>
                             <li><a href="vine.php">Vine outfit of the day</a></li>
-		        			<li>
+		        			<li><a href="liveDeals.php">Live Deals</a></li>
+		        			<li><a href="grabbit.php">Grabbit</a></li>
+<!--<li>
 		        				<a href="blog.html" class="nav-with-ul">Category</a>
 		        				<span class="nav-child-container"><span class="nav-child-trigger">+</span></span>
 		        				<ul style="height: 0;">
@@ -134,10 +136,9 @@ include_once("sessionhandle.php");
 				        			<li><a href="#">Shoes</a></li>
 				        			<li><a href="#">Night life</a></li>
 		        				</ul>
-		        			</li>
+		        			</li>-->
 		        			
 		        			
-		        			<li><a href="liveDeals.php">Live Deals</a></li>
                             <? if($userID!=""){?>
 		        			<li><a href="logout.php">Log out</a></li>
                             
