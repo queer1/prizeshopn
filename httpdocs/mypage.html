@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Simple markers</title>
+    <style>
+        html, body, #map-canvas {
+            height: 100%;
+            margin: 0px;
+            padding: 0px
+        }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <script>
+        var infoWindowDisplayStr;
+        TargetDate = "11/31/2013 5:00 AM";
+        CountActive = true;
+        CountStepper = -1;
+        LeadingZero = true;
+        DisplayFormat = "%%D%% D, %%H%% H, %%M%% M, %%S%% S";
+        FinishMessage = "It is finally here!";
+
+        CountStepper = Math.ceil(CountStepper);
+        if (CountStepper == 0)
+            CountActive = false;
+        var SetTimeOutPeriod = (Math.abs(CountStepper)-1)*1000 + 990;
+        var dthen = new Date(TargetDate);
+        var dnow = new Date();
+        if(CountStepper>0)
+            ddiff = new Date(dnow-dthen);
+        else
+            ddiff = new Date(dthen-dnow);
+        gsecs = Math.floor(ddiff.valueOf()/1000);
+
+        function calcage(secs, num1, num2) {
+            s = ((Math.floor(secs/num1))%num2).toString();
+            if (LeadingZero && s.length < 2)
+                s = "0" + s;
+            return "<b>" + s + "</b>";
+        }
+
+        function CountBack(secs) {
+            if (secs < 0) {
+                return(FinishMessage);
+            }
+            DisplayStr = DisplayFormat.replace(/%%D%%/g, calcage(secs,86400,100000));
+            DisplayStr = DisplayStr.replace(/%%H%%/g, calcage(secs,3600,24));
+            DisplayStr = DisplayStr.replace(/%%M%%/g, calcage(secs,60,60));
+            DisplayStr = DisplayStr.replace(/%%S%%/g, calcage(secs,1,60));
+
+            infoWindowDisplayStr = DisplayStr; //document.getElementById("cntdwn").innerHTML = DisplayStr;
+            if (CountActive)
+                setTimeout("CountBack(" + (secs+CountStepper) + ")", SetTimeOutPeriod);
+            return(DisplayStr);
+        }
+
+        function initialize() {
+            //Countdown timer
+
+            var countDownStr = CountBack(gsecs);
+            var contentString1 = "<img src='http://windowsvj.com/httpdocs/assets/kohl.png'>" +
+                    "Sale Ends in " +
+                    countDownStr;
+
+            var contentString2 = "<img src='http://windowsvj.com/httpdocs/assets/kohl.png'>" +
+                    "Sale Ends in " +
+                    countDownStr;
+
+
+            var myLatlng = new google.maps.LatLng(37.715352, -122.358583);
+            var myLatlng1 = new google.maps.LatLng(37.675352, -122.458583);
+            var myLatlng2 = new google.maps.LatLng(37.758184, -122.252550);
+            var mapOptions = {
+                zoom: 12,
+                center: myLatlng,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            }
+            var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+            var marker1 = new google.maps.Marker({
+                position: myLatlng1,
+                map: map,
+                title: 'Kohls SF'
+            });
+
+            var marker2 = new google.maps.Marker({
+                position: myLatlng2,
+                map: map,
+                title: 'Kohls OK'
+            });
+
+            var infowindow1 = new google.maps.InfoWindow({
+                content:  contentString1
+            });
+
+            var infowindow2 = new google.maps.InfoWindow({
+                content:  contentString2
+            });
+            google.maps.event.addListener(marker1, 'click', function() {
+                infowindow1.open(map,marker1);
+            });
+
+            google.maps.event.addListener(marker2, 'click', function() {
+                infowindow2.open(map,marker2);
+            });
+        }
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
+</head>
+<body>
+<div id="map-canvas"></div>
+</body>
+</html>

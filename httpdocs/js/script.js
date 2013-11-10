@@ -4,6 +4,55 @@
 *
 **/
 
+
+    /***
+    Countdown modules
+     */
+
+var infoWindowDisplayStr;
+function calcage(secs, num1, num2) {
+    s = ((Math.floor(secs/num1))%num2).toString();
+    if (LeadingZero && s.length < 2)
+        s = "0" + s;
+    return "<b>" + s + "</b>";
+}
+
+function CountBack(secs) {
+    if (secs < 0) {
+        return(FinishMessage);
+    }
+    DisplayStr = DisplayFormat.replace(/%%D%%/g, calcage(secs,86400,100000));
+    DisplayStr = DisplayStr.replace(/%%H%%/g, calcage(secs,3600,24));
+    DisplayStr = DisplayStr.replace(/%%M%%/g, calcage(secs,60,60));
+    DisplayStr = DisplayStr.replace(/%%S%%/g, calcage(secs,1,60));
+
+    infoWindowDisplayStr = DisplayStr; //document.getElementById("cntdwn").innerHTML = DisplayStr;
+    if (CountActive)
+        setTimeout("CountBack(" + (secs+CountStepper) + ")", SetTimeOutPeriod);
+    return(DisplayStr);
+}
+
+if (typeof(BackColor)=="undefined")
+    BackColor = "white";
+if (typeof(ForeColor)=="undefined")
+    ForeColor= "black";
+if (typeof(TargetDate)=="undefined")
+    TargetDate = "12/31/2023 5:00 AM";
+if (typeof(DisplayFormat)=="undefined")
+    DisplayFormat = "%%D%% Days, %%H%% Hours, %%M%% Minutes, %%S%% Seconds.";
+if (typeof(CountActive)=="undefined")
+    CountActive = true;
+if (typeof(FinishMessage)=="undefined")
+    FinishMessage = "";
+if (typeof(CountStepper)!="number")
+    CountStepper = -1;
+if (typeof(LeadingZero)=="undefined")
+    LeadingZero = true;
+
+
+
+
+
 var touchSupport = false;
 var eventClick = 'click';
 var eventHover = 'mouseover mouseout';
@@ -42,11 +91,8 @@ function hideAddressBar() {
 		setTimeout( function(){ window.scrollTo(0, 1); }, 0 );
 	}
 }
- 
+
 window.addEventListener('load', function(){ if(!window.pageYOffset){ hideAddressBar(); } } );
-
-
-
 
 /**
 *
@@ -55,14 +101,14 @@ window.addEventListener('load', function(){ if(!window.pageYOffset){ hideAddress
 **/
 
 var photoswipeContainer = '.photoswipe a';
-		
+
 if($(photoswipeContainer).length > 0){
 	(function(window, $, PhotoSwipe){
 
 		$(document).ready(function(){
-			
+
 			var options = {
-			
+
 				/* Customizing toolbar */
 
 				getToolbar: function(){
@@ -70,55 +116,44 @@ if($(photoswipeContainer).length > 0){
 					+ '<div class="ps-toolbar-play icon-play">Grabbit</div>'
 					+ '<div class="ps-toolbar-next icon-right-open">Win discounts</div>';
 				},
-						
+
 				getImageCaption: function(el){
 					var captionText, captionEl, captionBack;
-					
+
 					/* Get the caption from the alt tag */
 
 					if (el.nodeName === "IMG"){
-						captionText = el.getAttribute('alt'); 
+						captionText = el.getAttribute('alt');
 					}
 
 					var i, j, childEl;
 					for (i=0, j=el.childNodes.length; i<j; i++){
 						childEl = el.childNodes[i];
 						if (el.childNodes[i].nodeName === 'IMG'){
-							captionText = childEl.getAttribute('alt'); 
+							captionText = childEl.getAttribute('alt');
 						}
 					}
-					
+
 					/* Return a DOM element with custom styling */
 
 					captionBack = document.createElement('a');
 					captionBack.setAttribute('id', 'ps-custom-back');
 					captionBack.setAttribute('class', 'icon-cancel-1');
-					
+
 					captionEl = document.createElement('div');
 					captionEl.appendChild(captionBack);
-					
+
 					captionBack = document.createElement('span');
 					captionBack.innerHTML=captionText;
 					captionEl.appendChild(captionBack);
 					return captionEl;
 				},
-				
 				enableMouseWheel: false,
-				captionAndToolbarOpacity: 1,
+				captionAndToolbarOpacity: 1
 			}
-
-
-
-
 			/* Creating Photoswipe instance */
-
 			var instance = PhotoSwipe.attach(window.document.querySelectorAll(photoswipeContainer), options );
-
-
-
-
 			/* Adding listener to custom back button */
-
 			instance.addEventHandler(PhotoSwipe.EventTypes.onShow, function(e){
 				$('.ps-caption').addClass('active');
 				$('.ps-toolbar').addClass('active');
@@ -145,35 +180,22 @@ if($(photoswipeContainer).length > 0){
 				}
 
 			});
-
-
-
-
 			/* Play/Pause Icon Change */
-
 			/* Slideshow Start */
-
 			instance.addEventHandler(PhotoSwipe.EventTypes.onSlideshowStart, function(e){
 				$('.ps-toolbar-play').removeClass('icon-play');
 				$('.ps-toolbar-play').addClass('icon-pause');
 				$('.ps-toolbar-play').addClass('hover');
 			});
-
 			/* Slideshow End */
-
 			instance.addEventHandler(PhotoSwipe.EventTypes.onSlideshowStop, function(e){
 				$('.ps-toolbar-play').removeClass('icon-pause');
 				$('.ps-toolbar-play').addClass('icon-play');
 				$('.ps-toolbar-play').removeClass('hover');
 			});
-					
-		}, false);	
+		}, false);
 
 	}(window, window.jQuery, window.Code.PhotoSwipe));
-
-
-
-
 	/* Hover Effects - Photoswipe */
 
 	$(document).on(eventHover, '#ps-custom-back, .ps-toolbar-previous, .ps-toolbar-play, .ps-toolbar-next', function() {
@@ -194,32 +216,96 @@ if( document.getElementById('map-container-api') != null){
 
 	google.maps.visualRefresh = true;
 
-	/* Set Latitude and longitude for your google maps center and marker */
-
-	var mapLatitude = 37.8017993;
-	var maplongitude = -122.4768507;
-
 	var map;
 	var mapContainer = document.getElementById('map-container-api');
-	var mapMarker = new google.maps.LatLng(mapLatitude, maplongitude);
 
-	function initialize() {
-		var mapOptions = {
-			zoom: 13,
-			center: new google.maps.LatLng(mapLatitude, maplongitude),
+    //Countdown timer
+    TargetDate = "11/31/2013 5:00 AM";
+    CountActive = true;
+    CountStepper = -1;
+    LeadingZero = true;
+    DisplayFormat = "%%D%% D, %%H%% H, %%M%% M, %%S%% S.";
+    FinishMessage = "It is finally here!";
+
+    CountStepper = Math.ceil(CountStepper);
+    if (CountStepper == 0)
+        CountActive = false;
+    var SetTimeOutPeriod = (Math.abs(CountStepper)-1)*1000 + 990;
+    var dthen = new Date(TargetDate);
+    var dnow = new Date();
+    if(CountStepper>0)
+        ddiff = new Date(dnow-dthen);
+    else
+        ddiff = new Date(dthen-dnow);
+    gsecs = Math.floor(ddiff.valueOf()/1000);
+    var countDownStr = CountBack(gsecs);
+
+    var contentString1 = "<img src='http://windowsvj.com/httpdocs/assets/kohl.png'><br/>" +
+        " Sale Ends in " +
+        countDownStr;
+
+    var contentString2 = "<img src='http://windowsvj.com/httpdocs/assets/kohl.png'><br/>" +
+        " Sale Ends in " +
+        countDownStr;
+
+    function initialize() {
+        var myLatlng = new google.maps.LatLng(37.715352, -122.358583);
+        var myLatlng1 = new google.maps.LatLng(37.675352, -122.458583);
+        var myLatlng2 = new google.maps.LatLng(37.758184, -122.252550);
+
+
+        var mapOptions = {
+            zoom: 10,
+            center: myLatlng,
 			mapTypeId: google.maps.MapTypeId.ROADMAP,
-			disableDefaultUI: true,
+			disableDefaultUI: true
 		};
 
 		map = new google.maps.Map(mapContainer, mapOptions);
 
-		var marker = new google.maps.Marker({
-			position: mapMarker,
-		    animation: google.maps.Animation.DROP,
-			map: map,
-			flat: true,
-			tite: 'Restart Inc.'
-		});
+//		var marker = new google.maps.Marker({
+//			position: myLatlng,
+//		    animation: google.maps.Animation.DROP,
+//			map: map,
+//			flat: true,
+//			title: 'Restart Inc.'
+//		});
+//        var infoWin = new google.maps.InfoWindow({
+//            content: contentString
+//        });
+//
+//        google.maps.event.addListener(marker, 'click', function() {
+//            infoWin.open(map,marker);
+//        });
+
+
+
+        var marker1 = new google.maps.Marker({
+            position: myLatlng1,
+            map: map,
+            title: 'Kohls SF'
+        });
+
+        var marker2 = new google.maps.Marker({
+            position: myLatlng2,
+            map: map,
+            title: 'Kohls OK'
+        });
+
+        var infowindow1 = new google.maps.InfoWindow({
+            content:  contentString1
+        });
+
+        var infowindow2 = new google.maps.InfoWindow({
+            content:  contentString2
+        });
+        google.maps.event.addListener(marker1, 'click', function() {
+            infowindow1.open(map,marker1);
+        });
+
+        google.maps.event.addListener(marker2, 'click', function() {
+            infowindow2.open(map,marker2);
+        });
 	}
 
 	google.maps.event.addDomListener(window, 'load', initialize);

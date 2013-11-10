@@ -1,5 +1,9 @@
 <? include_once("top.php"); ?>
-
+<style>
+	.gm-style-iw{
+		width: auto !important;
+	}
+</style>
 
 		        <div id="content" class="contact">
 
@@ -128,6 +132,9 @@
 
 	
 	<!-- Custom Scripts -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="http://www.keith-wood.name/js/jquery.countdown.js"></script>
+<link rel="stylesheet" href="http://www.keith-wood.name/css/jquery.countdown.css"/>
 
 	    <script src='js/plugins/klass.js'></script>
 <script src='js/plugins/photoswipe.js'></script>
@@ -137,6 +144,9 @@
 <script src='js/plugins/responsivetables.js'></script>
 <script src='js/plugins/prism.js'></script>
 	    <script src='js/script.js'></script>
+<script language="JavaScript" src="js/countdown.js"></script>
+
+
 
 	<!-- =Custom Scripts -->
 

@@ -1,5 +1,6 @@
 <? include_once("top.php"); ?>
 
+
 		        <div id="content">
 		        	<div id="gallery" class="gallery-container three-column photoswipe">
 		        		<a href="assets/gallery/gallery01.jpg"><img src="assets/gallery/gallery01.jpg" alt="Budha"></a>
